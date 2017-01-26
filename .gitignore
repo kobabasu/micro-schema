@@ -5,9 +5,11 @@
 gulp/dir.es6
 config.xml
 tables/source/pdf/fop.xconf
+masters/source/pdf/fop.xconf
 
 # build files
 tables/build/*
+masters/build/*
 
 # exclude
 
