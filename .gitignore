@@ -1,6 +1,5 @@
 # common
 .DS_Store
-!.gitkeep
 
 # config
 gulp/dir.es6
@@ -11,3 +10,6 @@ tables/source/pdf/fop.xconf
 tables/build/*
 
 # exclude
+
+# gitkeep
+!.gitkeep
