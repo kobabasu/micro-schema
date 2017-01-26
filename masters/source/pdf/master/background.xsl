@@ -15,7 +15,7 @@
   <xsl:param name="title" select="@name" />
   <xsl:param
     name="project"
-    select="'テーブル定義書'"
+    select="'マスタ定義書'"
     />
   <xsl:param
     name="client"

@@ -21,7 +21,7 @@
             <!-- Dublin Core properties go here -->
 
             <dc:title>
-              <xsl:value-of select="'テーブル定義書'" />
+              <xsl:value-of select="'マスタ定義書'" />
             </dc:title>
             <dc:subject>
               <xsl:value-of select="keyword" />
