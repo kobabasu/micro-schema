@@ -1,4 +1,4 @@
-# micro-schema-
+# micro-schema
 以下が動作する必要がある
 
 * fop
