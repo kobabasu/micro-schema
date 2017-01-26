@@ -1,0 +1,21 @@
+<!-- config.xml -->
+<doc>
+  <config>
+    <client>xxx株式会社</client>
+    <date>2017/01/28</date>
+    <author>株式会社ooo</author>
+    <version>0.1</version>
+    <revision>01</revision>
+    <keyword>document, manual, database</keyword>
+    <tool>Apache FOP</tool>
+  </config>
+
+  <history>
+    <row date="2017/01/28" ver="1.0" desc="初版" />
+    <row date="-" ver="" desc="" />
+    <row date="-" ver="" desc="" />
+    <row date="-" ver="" desc="" />
+    <row date="-" ver="" desc="" />
+    <row date="-" ver="" desc="" />
+  </history>
+</doc>

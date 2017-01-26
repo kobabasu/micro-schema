@@ -1,0 +1,17 @@
+/**
+ * node_modulesが存在するディレクトリからの
+ * ドキュメントルートを指定
+ *
+ * nameはtask名の先頭になる
+ */
+
+const root = './admin/docs/manual/';
+
+export const dir = {
+  name: '',
+
+  root: root,
+  source:  root + 'source/',
+  js: root + 'source/_static/js/',
+  css: root + 'source/_static/css/'
+}

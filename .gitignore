@@ -1,0 +1,13 @@
+# common
+.DS_Store
+!.gitkeep
+
+# config
+gulp/dir.es6
+config.xml
+tables/source/pdf/fop.xconf
+
+# build files
+tables/build/*
+
+# exclude
