@@ -15,7 +15,7 @@ export const dir = {
   tables: {
     pdf: {
       src: root + 'tables/source/pdf/',
-      build: root + 'tables/build/pdf'
+      build: root + 'tables/build/pdf/'
     },
     html: {
       src: root + 'tables/html/',
@@ -26,7 +26,7 @@ export const dir = {
   masters: {
     pdf: {
       src: root + 'masters/source/pdf/',
-      build: root + 'masters/build/pdf'
+      build: root + 'masters/build/pdf/'
     },
     html: {
       src: root + 'masters/html/',
