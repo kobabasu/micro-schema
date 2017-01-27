@@ -21,7 +21,7 @@ class Manual extends DefaultRegistry {
     };
 
     gulp.task(prefix + 'schema:concat', shell.task([`
-      sed -i '' -e 's/<\\/mysqldump>//g' mysqldump.xml;
+      sed -i '' -e 's/<\\/mysqldump>//g' ${concat.xml}; \
       grep 'config.xml' -n ${concat.xml} | sed -e 's/:.*//g' | \
       xargs -I% sed -i '' -e '%,$d' ${concat.xml}; \
       cat ${concat.cnf} >> ${concat.xml}; \
