@@ -51,7 +51,7 @@
             text-align="center"
             xsl:use-attribute-sets="tablePad"
             >
-            <fo:block>cardinary</fo:block>
+            <fo:block>cardinality</fo:block>
           </fo:table-cell>
           <fo:table-cell
             text-align="center"
