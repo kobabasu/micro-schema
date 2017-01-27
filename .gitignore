@@ -4,8 +4,7 @@
 # config
 gulp/dir.es6
 config.xml
-tables/source/pdf/fop.xconf
-masters/source/pdf/fop.xconf
+fop.xconf
 
 # build files
 tables/build/*
