@@ -237,7 +237,18 @@
 
       <fo:table-cell xsl:use-attribute-sets="tablePad">
         <fo:block>
-          <xsl:value-of select="@Extra" />
+          <xsl:choose>
+            <xsl:when
+              test="contains(@Extra, 'auto_increment')"
+              >
+              <xsl:value-of
+                select="translate(@Extra, 'auto_increment', '')"
+                />
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="@Extra" />
+            </xsl:otherwise>
+          </xsl:choose>
         </fo:block>
       </fo:table-cell>
 
