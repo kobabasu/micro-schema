@@ -12,8 +12,8 @@
     <fo:table
       margin-bottom="3mm"
       >
-      <fo:table-column column-width="15%" />
-      <fo:table-column column-width="12%" />
+      <fo:table-column column-width="17%" />
+      <fo:table-column column-width="10%" />
       <fo:table-column column-width="5%" />
       <fo:table-column column-width="5%" />
       <fo:table-column column-width="5%" />
