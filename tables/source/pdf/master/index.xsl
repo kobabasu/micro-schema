@@ -20,7 +20,9 @@
 
   <xsl:template name="master">
   <xsl:for-each
-    select="/mysqldump/database/table_structure"
+    select="/mysqldump/database/table_structure[
+      ./options/@Comment != 'VIEW'
+    ]"
     >
 
     <fo:page-sequence

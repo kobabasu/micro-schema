@@ -12,7 +12,9 @@
     <fo:block margin-bottom="2.325mm">目次</fo:block>
 
     <xsl:for-each
-      select="/mysqldump/database/table_structure"
+      select="/mysqldump/database/table_structure[
+        ./options/@Comment != 'VIEW'
+      ]"
       >
       <xsl:call-template name="toc-row" />
     </xsl:for-each>

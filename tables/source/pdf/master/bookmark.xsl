@@ -9,7 +9,11 @@
   <!-- bookmark -->
 
   <xsl:template name="bookmark-master">
-    <xsl:for-each select="/mysqldump/database/table_structure">
+    <xsl:for-each
+      select="/mysqldump/database/table_structure[
+        ./options/@Comment != 'VIEW'
+      ]"
+      >
       <fo:bookmark
         internal-destination="{concat('id',position())}"
         >
