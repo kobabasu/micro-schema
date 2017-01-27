@@ -9,7 +9,6 @@
   <!-- bookmark -->
 
   <xsl:template name="bookmark-master">
-    <xsl:for-each select="/mysqldump/database/table_structure">
       <fo:bookmark
         internal-destination="{concat('id',position())}"
         >
@@ -17,7 +16,6 @@
           <xsl:value-of select="@name" />
         </fo:bookmark-title>
       </fo:bookmark>
-    </xsl:for-each>
   </xsl:template>
 
 </xsl:stylesheet>

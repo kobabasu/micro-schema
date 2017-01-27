@@ -19,32 +19,34 @@
   <!-- sequence -->
 
   <xsl:template name="master">
-  <xsl:for-each select="/mysqldump/database/table_structure">
+  <xsl:for-each select="/mysqldump/database/table_data">
 
-    <fo:page-sequence
-      master-reference="layout-master"
-      id="{concat('id',position())}"
-      >
+    <xsl:if test="count(./row/field) > 0">
+      <fo:page-sequence
+        master-reference="layout-master"
+        id="{concat('id',position())}"
+        >
 
-      <!-- background -->
+        <!-- background -->
 
-      <fo:static-content flow-name="xsl-region-before">
-        <fo:block>
-          <xsl:call-template name="master-background" />
-        </fo:block>
-      </fo:static-content>
+        <fo:static-content flow-name="xsl-region-before">
+          <fo:block>
+            <xsl:call-template name="master-background" />
+          </fo:block>
+        </fo:static-content>
 
-      <!-- body -->
+        <!-- body -->
 
-      <fo:flow flow-name="xsl-region-body">
-        <fo:block
-          font-size="8pt"
-          font-family="Yu Gothic"
-          >
-          <xsl:call-template name="master-body" />
-        </fo:block>
-      </fo:flow>
-    </fo:page-sequence>
+        <fo:flow flow-name="xsl-region-body">
+          <fo:block
+            font-size="8pt"
+            font-family="Yu Gothic"
+            >
+            <xsl:call-template name="master-body" />
+          </fo:block>
+        </fo:flow>
+      </fo:page-sequence>
+    </xsl:if>
   </xsl:for-each>
   </xsl:template>
 

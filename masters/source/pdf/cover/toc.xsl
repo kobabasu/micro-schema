@@ -12,9 +12,11 @@
     <fo:block margin-bottom="2.325mm">目次</fo:block>
 
     <xsl:for-each
-      select="/mysqldump/database/table_structure"
+      select="/mysqldump/database/table_data"
       >
-      <xsl:call-template name="toc-row" />
+      <xsl:if test="count(./row/field) > 0">
+        <xsl:call-template name="toc-row" />
+      </xsl:if>
     </xsl:for-each>
 
   </xsl:template>

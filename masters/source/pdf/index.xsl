@@ -39,7 +39,14 @@
 
     <fo:bookmark-tree>
       <xsl:call-template name="bookmark-cover" />
-      <xsl:call-template name="bookmark-master" />
+
+      <xsl:for-each
+        select="/mysqldump/database/table_data"
+        >
+        <xsl:if test="count(./row/field) > 0">
+          <xsl:call-template name="bookmark-master" />
+        </xsl:if>
+      </xsl:for-each>
     </fo:bookmark-tree>
 
     <!-- sequence -->
