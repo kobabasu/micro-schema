@@ -5,13 +5,37 @@
  * nameはtask名の先頭になる
  */
 
-const root = './admin/docs/manual/';
+const root = './admin/docs/schema/';
 
 export const dir = {
   name: '',
 
   root: root,
-  source:  root + 'source/',
-  js: root + 'source/_static/js/',
-  css: root + 'source/_static/css/'
+
+  concat: {
+    cnf: root + 'config.xml',
+    xml: root + 'mysqldump.xml'
+  },
+
+  tables: {
+    pdf: {
+      src: root + 'tables/source/pdf/',
+      build: root + 'tables/build/pdf/'
+    },
+    html: {
+      src: root + 'tables/html/',
+      css: root + 'tables/html/css/'
+    }
+  },
+
+  masters: {
+    pdf: {
+      src: root + 'masters/source/pdf/',
+      build: root + 'masters/build/pdf/'
+    },
+    html: {
+      src: root + 'masters/html/',
+      css: root + 'masters/html/css/'
+    }
+  }
 }
