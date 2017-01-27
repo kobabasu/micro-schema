@@ -41,11 +41,13 @@
       <xsl:call-template name="bookmark-cover" />
 
       <xsl:for-each
-        select="/mysqldump/database/table_data"
+        select="
+          /mysqldump/database/table_structure/options[
+            substring-before(@Comment, ':') = 'master'
+          ]
+        "
         >
-        <xsl:if test="count(./row/field) > 0">
-          <xsl:call-template name="bookmark-master" />
-        </xsl:if>
+        <xsl:call-template name="bookmark-master" />
       </xsl:for-each>
     </fo:bookmark-tree>
 

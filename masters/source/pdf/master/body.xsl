@@ -27,7 +27,7 @@
       columns
     </fo:block>
 
-    <xsl:call-template name="master-columns" />
+    <!-- xsl:call-template name="master-columns" /-->
 
   </xsl:template>
 

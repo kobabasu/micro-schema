@@ -12,11 +12,13 @@
     <fo:block margin-bottom="2.325mm">目次</fo:block>
 
     <xsl:for-each
-      select="/mysqldump/database/table_data"
+      select="
+        /mysqldump/database/table_structure/options[
+          substring-before(@Comment, ':') = 'master'
+        ]
+      "
       >
-      <xsl:if test="count(./row/field) > 0">
         <xsl:call-template name="toc-row" />
-      </xsl:if>
     </xsl:for-each>
 
   </xsl:template>
@@ -30,7 +32,7 @@
       padding="1.3375mm 1.2mm 0mm 1.2mm"
       >
       <fo:inline>
-        <xsl:value-of select="position()" />.&#160;
+        <xsl:number value="position()" />.&#160;
       </fo:inline>
       <fo:leader
         leader-pattern="dots"
@@ -40,7 +42,7 @@
         <fo:basic-link
           internal-destination="{concat('id', position())}"
           >
-          &#160;<xsl:value-of select="@name" />
+          &#160;<xsl:value-of select="@Name" />
         </fo:basic-link>
       </fo:inline>
     </fo:block>

@@ -13,7 +13,7 @@
         internal-destination="{concat('id',position())}"
         >
         <fo:bookmark-title>
-          <xsl:value-of select="@name" />
+          <xsl:value-of select="@Name" />
         </fo:bookmark-title>
       </fo:bookmark>
   </xsl:template>
