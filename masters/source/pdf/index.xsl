@@ -43,7 +43,16 @@
 
     <fo:bookmark-tree>
       <xsl:call-template name="bookmark-cover" />
-      <xsl:call-template name="bookmark-master" />
+
+      <xsl:for-each
+        select="
+          /mysqldump/database/table_structure/options[
+            substring-before(@Comment, ':') = 'master'
+          ]
+        "
+        >
+        <xsl:call-template name="bookmark-master" />
+      </xsl:for-each>
     </fo:bookmark-tree>
 
     <!-- sequence -->

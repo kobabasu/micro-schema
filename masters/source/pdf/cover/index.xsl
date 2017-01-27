@@ -9,30 +9,28 @@
   <!-- include -->
 
   <xsl:include href="body.xsl" />
-  <xsl:include href="columns.xsl" />
-  <xsl:include href="keys.xsl" />
-  <xsl:include href="options.xsl" />
   <xsl:include href="background.xsl" />
   <xsl:include href="bookmark.xsl" />
+
+  <xsl:include href="toc.xsl" />
+  <xsl:include href="history.xsl" />
 
 
   <!-- sequence -->
 
-  <xsl:template name="master">
-  <xsl:for-each
-    select="/mysqldump/database/table_structure"
-    >
-
+  <xsl:template name="cover">
     <fo:page-sequence
-      master-reference="layout-master"
-      id="{concat('id',position())}"
+      master-reference="layout-cover"
+      id="id0"
       >
 
       <!-- background -->
 
       <fo:static-content flow-name="xsl-region-before">
         <fo:block>
-          <xsl:call-template name="master-background" />
+          <xsl:for-each select="/mysqldump/doc/config">
+            <xsl:call-template name="cover-background" />
+          </xsl:for-each>
         </fo:block>
       </fo:static-content>
 
@@ -40,16 +38,13 @@
 
       <fo:flow flow-name="xsl-region-body">
         <fo:block
-          font-size="8pt"
+          font-size="7.5pt"
           font-family="Yu Gothic"
           >
-          <xsl:call-template name="master-body" />
+          <xsl:call-template name="cover-body" />
         </fo:block>
       </fo:flow>
-
     </fo:page-sequence>
-
-  </xsl:for-each>
   </xsl:template>
 
 </xsl:stylesheet>
