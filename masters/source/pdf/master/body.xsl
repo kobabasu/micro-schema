@@ -51,6 +51,9 @@
           <xsl:when test="@name = 'id'">
             <fo:table-column column-width="5%" />
           </xsl:when>
+          <xsl:when test="@name = 'sort'">
+            <fo:table-column column-width="5%" />
+          </xsl:when>
           <xsl:when test="substring-after(@name, '_') = 'id'">
             <fo:table-column column-width="15%" />
           </xsl:when>
