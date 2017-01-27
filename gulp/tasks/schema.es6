@@ -29,7 +29,7 @@ class Manual extends DefaultRegistry {
     gulp.task(prefix + 'schema:tables:pdf', shell.task([`
       source ${dir.root}concat.sh; \
       fop -c ${tables.pdf.src}fop.xconf -xml ${dir.root}mysqldump.xml \
-      -xsl ${tables.pdf.src}index.xsl -pdf ${tables.pdf.build}tables.pdf;
+      -xsl ${tables.pdf.src}index.xsl -pdf ${tables.pdf.build}masters.pdf;
     `]));
 
     /*
