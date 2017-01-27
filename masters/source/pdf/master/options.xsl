@@ -22,7 +22,7 @@
         border="solid 0.2mm #9C9C9C"
         >
         <xsl:for-each
-          select="options"
+          select="."
           >
           <xsl:call-template name="master-options-row" />
         </xsl:for-each>

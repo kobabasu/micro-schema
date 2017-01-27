@@ -9,8 +9,7 @@
   <!-- include -->
 
   <xsl:include href="body.xsl" />
-  <xsl:include href="columns.xsl" />
-  <xsl:include href="keys.xsl" />
+  <xsl:include href="fields.xsl" />
   <xsl:include href="options.xsl" />
   <xsl:include href="background.xsl" />
   <xsl:include href="bookmark.xsl" />
@@ -50,7 +49,9 @@
           <xsl:call-template name="master-body" />
         </fo:block>
       </fo:flow>
+
     </fo:page-sequence>
+
   </xsl:for-each>
   </xsl:template>
 

@@ -12,22 +12,100 @@
     <xsl:call-template name="master-body-page" />
   </xsl:template>
 
+
   <!-- template -->
 
   <xsl:template name="master-body-page">
 
+    <!-- comment -->
 
-    <!-- columns -->
     <fo:block
-      margin-top="3mm"
-      margin-bottom="1mm"
       font-size="9pt"
-      font-weight="bold"
+      margin-bottom="8mm"
       >
-      columns
+      <xsl:for-each select=".">
+        <xsl:value-of
+          select="substring-after(@Comment, ':')"
+          />
+      </xsl:for-each>
     </fo:block>
 
-    <!-- xsl:call-template name="master-columns" /-->
+    <!-- options -->
+
+    <xsl:call-template name="master-options" />
+
+    <!-- fields -->
+
+    <fo:table
+      margin-bottom="3mm"
+      >
+      <xsl:variable name="pos" select="@Name" />
+      <xsl:for-each
+        select="
+        /mysqldump/database/table_data[
+          @name = $pos
+        ]/row[1]/field
+        "
+        >
+        <xsl:choose>
+          <xsl:when test="@name = 'id'">
+            <fo:table-column column-width="5%" />
+          </xsl:when>
+          <xsl:when test="substring-after(@name, '_') = 'id'">
+            <fo:table-column column-width="15%" />
+          </xsl:when>
+          <xsl:otherwise>
+            <fo:table-column column-width="auto" />
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:for-each>
+
+      <!-- table-header -->
+
+      <fo:table-header>
+        <fo:table-row
+          xsl:use-attribute-sets="gBorderBold"
+          color="#9C9C9C"
+          font-size="7pt"
+          font-weight="bold"
+          >
+
+          <xsl:variable name="pos" select="@Name" />
+          <xsl:for-each
+            select="
+            /mysqldump/database/table_data[
+              @name = $pos
+            ]/row[1]/field
+            "
+            >
+            <fo:table-cell
+              xsl:use-attribute-sets="tablePad"
+              >
+              <fo:block>
+                <xsl:value-of select="@name" />
+              </fo:block>
+            </fo:table-cell>
+          </xsl:for-each>
+
+        </fo:table-row>
+      </fo:table-header>
+
+      <!-- table-body -->
+
+      <fo:table-body>
+        <xsl:variable name="pos" select="@Name" />
+        <xsl:for-each
+          select="
+          /mysqldump/database/table_data[
+            @name = $pos
+          ]/row
+          "
+          >
+          <xsl:call-template name="master-fields" />
+        </xsl:for-each>
+      </fo:table-body>
+
+    </fo:table>
 
   </xsl:template>
 
