@@ -33,9 +33,13 @@
       <xsl:call-template name="layout-master" />
     </fo:layout-master-set>
 
+    <!-- pdf properties -->
+
     <xsl:for-each select="/mysqldump/doc/config">
       <xsl:call-template name="meta" />
     </xsl:for-each>
+
+    <!-- bookmark -->
 
     <fo:bookmark-tree>
       <xsl:call-template name="bookmark-cover" />
