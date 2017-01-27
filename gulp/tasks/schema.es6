@@ -129,6 +129,57 @@ class Manual extends DefaultRegistry {
         prefix + 'schema:masters:pdf',
         prefix + 'schema:masters:pdf:open'
     ));
+
+
+    /*
+     * views:pdf
+     */
+    const views = {
+      pdf: {
+        src:   dir.views.pdf.src,
+        build: dir.views.pdf.build
+      },
+      html: {
+        src:   dir.views.html.src,
+        css:   dir.views.html.css
+      }
+    };
+
+    gulp.task(prefix + 'schema:views:pdf', shell.task([`
+      fop -c ${dir.root}fop.xconf -xml ${dir.root}mysqldump.xml \
+      -xsl ${views.pdf.src}index.xsl -pdf ${views.pdf.build}views.pdf;
+    `]));
+
+    /*
+     * views:pdf:open
+     */
+    gulp.task(prefix + 'schema:views:pdf:open', shell.task([`
+      open ${views.pdf.build}views.pdf;
+    `]));
+
+    /*
+     * views:pdf:watch
+     */
+    gulp.task(prefix + 'schema:views:pdf:watch', () => {
+      gulp
+        .watch(
+          [views.pdf.src],
+          gulp.series(
+            prefix + 'schema:concat',
+            prefix + 'schema:views:pdf'
+          )
+        ).on('error', err => process.exit(1));
+    });
+
+    /*
+     * views:pdf:build
+     */
+    gulp.task(prefix + 'schema:views:build',
+      gulp.series(
+        prefix + 'schema:concat',
+        prefix + 'schema:views:pdf',
+        prefix + 'schema:views:pdf:open'
+    ));
   }
 };
 
