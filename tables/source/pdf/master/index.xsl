@@ -19,7 +19,9 @@
   <!-- sequence -->
 
   <xsl:template name="master">
-  <xsl:for-each select="/mysqldump/database/table_structure">
+  <xsl:for-each
+    select="/mysqldump/database/table_structure"
+    >
 
     <fo:page-sequence
       master-reference="layout-master"
@@ -44,7 +46,9 @@
           <xsl:call-template name="master-body" />
         </fo:block>
       </fo:flow>
+
     </fo:page-sequence>
+
   </xsl:for-each>
   </xsl:template>
 
