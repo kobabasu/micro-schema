@@ -133,10 +133,6 @@
       </fo:table-cell>
 
       <fo:table-cell xsl:use-attribute-sets="tablePad">
-        <fo:block>&#160;</fo:block>
-      </fo:table-cell>
-
-      <fo:table-cell xsl:use-attribute-sets="tablePad">
         <fo:block text-align="center">
           <xsl:if test="@Null='YES'">
             <fo:inline font-family="FontAwesome">
@@ -144,6 +140,10 @@
             </fo:inline>
           </xsl:if>
         </fo:block>
+      </fo:table-cell>
+
+      <fo:table-cell xsl:use-attribute-sets="tablePad">
+        <fo:block>&#160;</fo:block>
       </fo:table-cell>
 
       <fo:table-cell xsl:use-attribute-sets="tablePad">
