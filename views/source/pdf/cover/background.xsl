@@ -12,7 +12,7 @@
 
   <!-- vars -->
 
-  <xsl:param name="project" select="'テーブル定義書'" />
+  <xsl:param name="project" select="'ビュー定義書'" />
   <xsl:param name="client" select="client" />
   <xsl:param name="date" select="date" />
   <xsl:param name="author" select="author" />
