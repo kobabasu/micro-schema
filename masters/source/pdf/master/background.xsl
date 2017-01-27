@@ -12,7 +12,7 @@
 
   <!-- vars -->
 
-  <xsl:param name="title" select="@name" />
+  <xsl:param name="title" select="@Name" />
   <xsl:param
     name="project"
     select="'マスタ定義書'"
