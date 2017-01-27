@@ -13,6 +13,23 @@ class Manual extends DefaultRegistry {
     let prefix = (dir.name == '') ? '' : dir.name + ':';
 
     /*
+     * schema:concat
+     */
+    const concat = {
+      cnf: dir.concat.cnf,
+      xml: dir.concat.xml
+    };
+
+    gulp.task(prefix + 'schema:concat', shell.task([`
+      sed -i '' -e 's/<\\/mysqldump>//g' mysqldump.xml;
+      grep 'config.xml' -n ${concat.xml} | sed -e 's/:.*//g' | \
+      xargs -I% sed -i '' -e '%,$d' ${concat.xml}; \
+      cat ${concat.cnf} >> ${concat.xml}; \
+      sed -i '' -e '$s/$/<\\/mysqldump>/g' ${concat.xml};
+    `]));
+
+
+    /*
      * tables:pdf
      */
     const tables = {
@@ -27,9 +44,8 @@ class Manual extends DefaultRegistry {
     };
 
     gulp.task(prefix + 'schema:tables:pdf', shell.task([`
-      source ${dir.root}concat.sh; \
       fop -c ${dir.root}fop.xconf -xml ${dir.root}mysqldump.xml \
-      -xsl ${tables.pdf.src}index.xsl -pdf ${tables.pdf.build}masters.pdf;
+      -xsl ${tables.pdf.src}index.xsl -pdf ${tables.pdf.build}tables.pdf;
     `]));
 
     /*
@@ -46,7 +62,10 @@ class Manual extends DefaultRegistry {
       gulp
         .watch(
           [tables.pdf.src],
-          gulp.series(prefix + 'schema:tables:pdf')
+          gulp.series(
+            prefix + 'schema:concat',
+            prefix + 'schema:tables:pdf'
+          )
         ).on('error', err => process.exit(1));
     });
 
@@ -55,6 +74,7 @@ class Manual extends DefaultRegistry {
      */
     gulp.task(prefix + 'schema:tables:build',
       gulp.series(
+        prefix + 'schema:concat',
         prefix + 'schema:tables:pdf',
         prefix + 'schema:tables:pdf:open'
     ));
@@ -75,7 +95,6 @@ class Manual extends DefaultRegistry {
     };
 
     gulp.task(prefix + 'schema:masters:pdf', shell.task([`
-      source ${dir.root}concat.sh; \
       fop -c ${dir.root}fop.xconf -xml ${dir.root}mysqldump.xml \
       -xsl ${masters.pdf.src}index.xsl -pdf ${masters.pdf.build}masters.pdf;
     `]));
@@ -94,7 +113,10 @@ class Manual extends DefaultRegistry {
       gulp
         .watch(
           [masters.pdf.src],
-          gulp.series(prefix + 'schema:masters:pdf')
+          gulp.series(
+            prefix + 'schema:concat',
+            prefix + 'schema:masters:pdf'
+          )
         ).on('error', err => process.exit(1));
     });
 
@@ -103,6 +125,7 @@ class Manual extends DefaultRegistry {
      */
     gulp.task(prefix + 'schema:masters:build',
       gulp.series(
+        prefix + 'schema:concat',
         prefix + 'schema:masters:pdf',
         prefix + 'schema:masters:pdf:open'
     ));

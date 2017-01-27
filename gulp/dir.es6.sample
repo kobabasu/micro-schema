@@ -12,6 +12,11 @@ export const dir = {
 
   root: root,
 
+  concat: {
+    cnf: root + 'config.xml',
+    xml: root + 'mysqldump.xml'
+  },
+
   tables: {
     pdf: {
       src: root + 'tables/source/pdf/',
