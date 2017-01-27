@@ -23,7 +23,9 @@
       margin-bottom="8mm"
       >
       <xsl:for-each select="options">
-        <xsl:value-of select="@Comment" />
+        <xsl:value-of
+          select="substring-after(@Comment, ':')"
+          />
       </xsl:for-each>
     </fo:block>
 
