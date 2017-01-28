@@ -231,6 +231,19 @@ class Manual extends DefaultRegistry {
         prefix + 'schema:procedures:pdf',
         prefix + 'schema:procedures:pdf:open'
     ));
+
+
+    /*
+     * schema:pdf:build
+     */
+    gulp.task(prefix + 'schema:pdf:build',
+      gulp.series(
+        prefix + 'schema:concat',
+        prefix + 'schema:tables:pdf',
+        prefix + 'schema:masters:pdf',
+        prefix + 'schema:views:pdf',
+        prefix + 'schema:procedures:pdf'
+    ));
   }
 };
 
