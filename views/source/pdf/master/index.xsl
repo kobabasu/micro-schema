@@ -10,8 +10,6 @@
 
   <xsl:include href="body.xsl" />
   <xsl:include href="columns.xsl" />
-  <xsl:include href="keys.xsl" />
-  <xsl:include href="options.xsl" />
   <xsl:include href="background.xsl" />
   <xsl:include href="bookmark.xsl" />
 
