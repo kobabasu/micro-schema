@@ -59,7 +59,7 @@
 
       <fo:table-cell xsl:use-attribute-sets="tablePad">
         <fo:block>
-          <xsl:value-of select="@character_set_client" />
+          <xsl:value-of select="." />
         </fo:block>
       </fo:table-cell>
 

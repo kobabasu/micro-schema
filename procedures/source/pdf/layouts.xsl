@@ -33,6 +33,8 @@
       margin="0"
       >
       <fo:region-body
+        column-count="3"
+        column-gap="0mm"
         margin="44.5mm 19.5mm 16.5mm 19.5mm"
         />
       <fo:region-before />
