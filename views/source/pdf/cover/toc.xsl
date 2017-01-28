@@ -13,7 +13,7 @@
 
     <xsl:for-each
       select="/mysqldump/database/table_structure[
-        ./options/@Comment != 'VIEW'
+        ./options/@Comment = 'VIEW'
       ]"
       >
       <xsl:call-template name="toc-row" />
