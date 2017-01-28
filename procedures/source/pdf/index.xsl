@@ -9,7 +9,6 @@
 
   <!-- include common -->
 
-  <xsl:include href="psmi.xsl" />
   <xsl:include href="parser.xsl" />
   <xsl:include href="attr.xsl" />
   <xsl:include href="layouts.xsl" />
