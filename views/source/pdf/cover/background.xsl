@@ -60,7 +60,7 @@
       <rect x="21.3" y="212.6" class="st8" width="799.4" height="25.5"/>
       <text transform="matrix(1.0034 0 0 1 420.3 230.199)" class="st4 st5 st18" text-anchor="middle"><xsl:value-of select="$client" /> 様</text>
       <rect x="21.3" y="263.6" class="st8" width="799.4" height="39.7"/>
-      <text transform="matrix(1.0034 0 0 1 435.3 299.5)" class="st4 st5 st19 st7" text-anchor="middle"><xsl:value-of select="$project" /></text>
+      <text transform="matrix(1.0034 0 0 1 430.3 299.5)" class="st4 st5 st19 st7" text-anchor="middle"><xsl:value-of select="$project" /></text>
       </svg>
     <!-- svg end -->
 
