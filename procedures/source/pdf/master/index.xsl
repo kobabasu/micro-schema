@@ -47,7 +47,6 @@
         <!-- routines -->
 
         <fo:block-container
-          text-align="justify"
           border-left="solid 0.1mm #999999"
           >
           <xsl:call-template name="master-body" />
