@@ -17,26 +17,7 @@
   <xsl:template name="master-body-page">
 
 
-    <!-- comment -->
-    <fo:block
-      font-size="9pt"
-      margin-bottom="8mm"
-      >
-      <xsl:for-each select="options">
-        <xsl:choose>
-          <xsl:when test="contains(@Comment, ':')">
-            <xsl:value-of
-              select="substring-after(@Comment, ':')"
-              />
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="@Comment" />
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:for-each>
-    </fo:block>
-
-    <!-- routines -->
+    <!-- body -->
 
       <fo:block
         margin="0mm 3mm 1mm 3mm"
@@ -59,8 +40,6 @@
         >
         <xsl:value-of select="." />
       </fo:block>
-
-    <!--xsl:call-template name="master-routines" /-->
 
   </xsl:template>
 

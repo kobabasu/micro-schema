@@ -9,7 +9,6 @@
   <!-- include -->
 
   <xsl:include href="body.xsl" />
-  <xsl:include href="routines.xsl" />
   <xsl:include href="options.xsl" />
   <xsl:include href="background.xsl" />
   <xsl:include href="bookmark.xsl" />
@@ -44,10 +43,9 @@
           <xsl:call-template name="master-options" />
         </fo:block>
 
-        <!-- routines -->
+        <!-- body -->
 
         <fo:block-container
-          text-align="justify"
           border-left="solid 0.1mm #999999"
           >
           <xsl:call-template name="master-body" />
