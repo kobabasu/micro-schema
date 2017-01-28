@@ -36,33 +36,31 @@
       </xsl:for-each>
     </fo:block>
 
-    <!-- options -->
-    <xsl:call-template name="master-options" />
+    <!-- routines -->
 
-    <!-- columns -->
-    <fo:block
-      margin-top="3mm"
-      margin-bottom="1mm"
-      font-size="9pt"
-      font-weight="bold"
-      >
-      columns
-    </fo:block>
+      <fo:block
+        margin="0mm 3mm 1mm 3mm"
+        margin-top="3mm"
+        margin-bottom="1mm"
+        font-size="9pt"
+        font-weight="bold"
+        >
+        <xsl:value-of select="./@Procedure" />
+        procedure
+      </fo:block>
 
-    <xsl:call-template name="master-columns" />
+      <fo:block
+        margin="0mm 3mm"
+        line-height="4mm"
+        font-size="7pt"
+        font-family="Yu Gothic"
+        wrap-option="wrap"
+        white-space="pre"
+        >
+        <xsl:value-of select="." />
+      </fo:block>
 
-    <!-- keys -->
-    <fo:block
-      margin-top="3mm"
-      margin-bottom="1mm"
-      font-size="9pt"
-      font-weight="bold"
-      keep-with-next.within-page="always"
-      >
-      keys
-    </fo:block>
-
-    <xsl:call-template name="master-keys" />
+    <!--xsl:call-template name="master-routines" /-->
 
   </xsl:template>
 

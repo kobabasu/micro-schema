@@ -12,8 +12,8 @@
     <fo:table
       margin-bottom="3mm"
       >
-      <fo:table-column column-width="15%" />
-      <fo:table-column column-width="12%" />
+      <fo:table-column column-width="17%" />
+      <fo:table-column column-width="10%" />
       <fo:table-column column-width="5%" />
       <fo:table-column column-width="5%" />
       <fo:table-column column-width="5%" />
@@ -51,7 +51,7 @@
             text-align="center"
             xsl:use-attribute-sets="tablePad"
             >
-            <fo:block>cardinary</fo:block>
+            <fo:block>cardinality</fo:block>
           </fo:table-cell>
           <fo:table-cell
             text-align="center"
@@ -133,10 +133,6 @@
       </fo:table-cell>
 
       <fo:table-cell xsl:use-attribute-sets="tablePad">
-        <fo:block>&#160;</fo:block>
-      </fo:table-cell>
-
-      <fo:table-cell xsl:use-attribute-sets="tablePad">
         <fo:block text-align="center">
           <xsl:if test="@Null='YES'">
             <fo:inline font-family="FontAwesome">
@@ -144,6 +140,10 @@
             </fo:inline>
           </xsl:if>
         </fo:block>
+      </fo:table-cell>
+
+      <fo:table-cell xsl:use-attribute-sets="tablePad">
+        <fo:block>&#160;</fo:block>
       </fo:table-cell>
 
       <fo:table-cell xsl:use-attribute-sets="tablePad">

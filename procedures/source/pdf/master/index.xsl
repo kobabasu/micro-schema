@@ -9,8 +9,7 @@
   <!-- include -->
 
   <xsl:include href="body.xsl" />
-  <xsl:include href="columns.xsl" />
-  <xsl:include href="keys.xsl" />
+  <xsl:include href="routines.xsl" />
   <xsl:include href="options.xsl" />
   <xsl:include href="background.xsl" />
   <xsl:include href="bookmark.xsl" />
@@ -20,10 +19,7 @@
 
   <xsl:template name="master">
   <xsl:for-each
-    select="/mysqldump/database/table_structure[
-      ./options/@Comment != 'VIEW'
-    ]"
-    >
+    select="/mysqldump/database/routines/routine">
 
     <fo:page-sequence
       master-reference="layout-master"
@@ -41,12 +37,22 @@
       <!-- body -->
 
       <fo:flow flow-name="xsl-region-body">
-        <fo:block
-          font-size="8pt"
-          font-family="Yu Gothic"
+
+        <!-- options -->
+
+        <fo:block span="all">
+          <xsl:call-template name="master-options" />
+        </fo:block>
+
+        <!-- routines -->
+
+        <fo:block-container
+          text-align="justify"
+          border-left="solid 0.1mm #999999"
           >
           <xsl:call-template name="master-body" />
-        </fo:block>
+        </fo:block-container>
+
       </fo:flow>
 
     </fo:page-sequence>

@@ -10,8 +10,6 @@
 
   <xsl:include href="body.xsl" />
   <xsl:include href="columns.xsl" />
-  <xsl:include href="keys.xsl" />
-  <xsl:include href="options.xsl" />
   <xsl:include href="background.xsl" />
   <xsl:include href="bookmark.xsl" />
 
@@ -21,7 +19,7 @@
   <xsl:template name="master">
   <xsl:for-each
     select="/mysqldump/database/table_structure[
-      ./options/@Comment != 'VIEW'
+      ./options/@Comment = 'VIEW'
     ]"
     >
 

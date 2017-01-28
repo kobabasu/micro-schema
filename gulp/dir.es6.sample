@@ -37,5 +37,27 @@ export const dir = {
       src: root + 'masters/html/',
       css: root + 'masters/html/css/'
     }
+  },
+
+  views: {
+    pdf: {
+      src: root + 'views/source/pdf/',
+      build: root + 'views/build/pdf/'
+    },
+    html: {
+      src: root + 'views/html/',
+      css: root + 'views/html/css/'
+    }
+  },
+
+  procedures: {
+    pdf: {
+      src: root + 'procedures/source/pdf/',
+      build: root + 'procedures/build/pdf/'
+    },
+    html: {
+      src: root + 'procedures/html/',
+      css: root + 'procedures/html/css/'
+    }
   }
 }

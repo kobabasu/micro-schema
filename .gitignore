@@ -9,6 +9,8 @@ fop.xconf
 # build files
 tables/build/*
 masters/build/*
+views/build/*
+procedures/build/*
 
 # exclude
 

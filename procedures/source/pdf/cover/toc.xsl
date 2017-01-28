@@ -12,10 +12,7 @@
     <fo:block margin-bottom="2.325mm">目次</fo:block>
 
     <xsl:for-each
-      select="/mysqldump/database/table_structure[
-        ./options/@Comment != 'VIEW'
-      ]"
-      >
+      select="/mysqldump/database/routines/routine">
       <xsl:call-template name="toc-row" />
     </xsl:for-each>
 
@@ -40,7 +37,7 @@
         <fo:basic-link
           internal-destination="{concat('id', position())}"
           >
-          &#160;<xsl:value-of select="@name" />
+          &#160;<xsl:value-of select="@Procedure" />
         </fo:basic-link>
       </fo:inline>
     </fo:block>

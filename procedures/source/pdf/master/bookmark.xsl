@@ -10,15 +10,12 @@
 
   <xsl:template name="bookmark-master">
     <xsl:for-each
-      select="/mysqldump/database/table_structure[
-        ./options/@Comment != 'VIEW'
-      ]"
-      >
+      select="/mysqldump/database/routines/routine">
       <fo:bookmark
         internal-destination="{concat('id',position())}"
         >
         <fo:bookmark-title>
-          <xsl:value-of select="@name" />
+          <xsl:value-of select="@Procedure" />
         </fo:bookmark-title>
       </fo:bookmark>
     </xsl:for-each>

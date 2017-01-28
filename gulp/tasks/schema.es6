@@ -21,7 +21,7 @@ class Manual extends DefaultRegistry {
     };
 
     gulp.task(prefix + 'schema:concat', shell.task([`
-      sed -i '' -e 's/<\\/mysqldump>//g' mysqldump.xml;
+      sed -i '' -e 's/<\\/mysqldump>//g' ${concat.xml}; \
       grep 'config.xml' -n ${concat.xml} | sed -e 's/:.*//g' | \
       xargs -I% sed -i '' -e '%,$d' ${concat.xml}; \
       cat ${concat.cnf} >> ${concat.xml}; \
@@ -128,6 +128,121 @@ class Manual extends DefaultRegistry {
         prefix + 'schema:concat',
         prefix + 'schema:masters:pdf',
         prefix + 'schema:masters:pdf:open'
+    ));
+
+
+    /*
+     * views:pdf
+     */
+    const views = {
+      pdf: {
+        src:   dir.views.pdf.src,
+        build: dir.views.pdf.build
+      },
+      html: {
+        src:   dir.views.html.src,
+        css:   dir.views.html.css
+      }
+    };
+
+    gulp.task(prefix + 'schema:views:pdf', shell.task([`
+      fop -c ${dir.root}fop.xconf -xml ${dir.root}mysqldump.xml \
+      -xsl ${views.pdf.src}index.xsl -pdf ${views.pdf.build}views.pdf;
+    `]));
+
+    /*
+     * views:pdf:open
+     */
+    gulp.task(prefix + 'schema:views:pdf:open', shell.task([`
+      open ${views.pdf.build}views.pdf;
+    `]));
+
+    /*
+     * views:pdf:watch
+     */
+    gulp.task(prefix + 'schema:views:pdf:watch', () => {
+      gulp
+        .watch(
+          [views.pdf.src],
+          gulp.series(
+            prefix + 'schema:concat',
+            prefix + 'schema:views:pdf'
+          )
+        ).on('error', err => process.exit(1));
+    });
+
+    /*
+     * views:pdf:build
+     */
+    gulp.task(prefix + 'schema:views:build',
+      gulp.series(
+        prefix + 'schema:concat',
+        prefix + 'schema:views:pdf',
+        prefix + 'schema:views:pdf:open'
+    ));
+
+
+    /*
+     * procedures:pdf
+     */
+    const procedures = {
+      pdf: {
+        src:   dir.procedures.pdf.src,
+        build: dir.procedures.pdf.build
+      },
+      html: {
+        src:   dir.procedures.html.src,
+        css:   dir.procedures.html.css
+      }
+    };
+
+    gulp.task(prefix + 'schema:procedures:pdf', shell.task([`
+      fop -c ${dir.root}fop.xconf -xml ${dir.root}mysqldump.xml \
+      -xsl ${procedures.pdf.src}index.xsl -pdf ${procedures.pdf.build}procedures.pdf;
+    `]));
+
+    /*
+     * procedures:pdf:open
+     */
+    gulp.task(prefix + 'schema:procedures:pdf:open', shell.task([`
+      open ${procedures.pdf.build}procedures.pdf;
+    `]));
+
+    /*
+     * procedures:pdf:watch
+     */
+    gulp.task(prefix + 'schema:procedures:pdf:watch', () => {
+      gulp
+        .watch(
+          [procedures.pdf.src],
+          gulp.series(
+            prefix + 'schema:concat',
+            prefix + 'schema:procedures:pdf'
+          )
+        ).on('error', err => process.exit(1));
+    });
+
+    /*
+     * procedures:pdf:build
+     */
+    gulp.task(prefix + 'schema:procedures:build',
+      gulp.series(
+        prefix + 'schema:concat',
+        prefix + 'schema:procedures:pdf',
+        prefix + 'schema:procedures:pdf:open'
+    ));
+
+
+    /*
+     * schema:pdf:build
+     */
+    gulp.task(prefix + 'schema:pdf:build',
+      gulp.series(
+        prefix + 'schema:concat',
+        prefix + 'schema:tables:pdf',
+        prefix + 'schema:masters:pdf',
+        prefix + 'schema:views:pdf',
+        prefix + 'schema:procedures:pdf'
     ));
   }
 };
