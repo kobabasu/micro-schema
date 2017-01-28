@@ -36,10 +36,7 @@
       </xsl:for-each>
     </fo:block>
 
-    <!-- options -->
-    <xsl:call-template name="master-options" />
-
-    <!-- columns -->
+    <!-- routines -->
     <fo:block
       margin-top="3mm"
       margin-bottom="1mm"
@@ -50,19 +47,6 @@
     </fo:block>
 
     <xsl:call-template name="master-columns" />
-
-    <!-- keys -->
-    <fo:block
-      margin-top="3mm"
-      margin-bottom="1mm"
-      font-size="9pt"
-      font-weight="bold"
-      keep-with-next.within-page="always"
-      >
-      keys
-    </fo:block>
-
-    <xsl:call-template name="master-keys" />
 
   </xsl:template>
 
