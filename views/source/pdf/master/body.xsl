@@ -16,29 +16,6 @@
 
   <xsl:template name="master-body-page">
 
-
-    <!-- comment -->
-    <fo:block
-      font-size="9pt"
-      margin-bottom="8mm"
-      >
-      <xsl:for-each select="options">
-        <xsl:choose>
-          <xsl:when test="contains(@Comment, ':')">
-            <xsl:value-of
-              select="substring-after(@Comment, ':')"
-              />
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="@Comment" />
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:for-each>
-    </fo:block>
-
-    <!-- options -->
-    <xsl:call-template name="master-options" />
-
     <!-- columns -->
     <fo:block
       margin-top="3mm"
@@ -50,19 +27,6 @@
     </fo:block>
 
     <xsl:call-template name="master-columns" />
-
-    <!-- keys -->
-    <fo:block
-      margin-top="3mm"
-      margin-bottom="1mm"
-      font-size="9pt"
-      font-weight="bold"
-      keep-with-next.within-page="always"
-      >
-      keys
-    </fo:block>
-
-    <xsl:call-template name="master-keys" />
 
   </xsl:template>
 

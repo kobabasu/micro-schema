@@ -11,7 +11,7 @@
   <xsl:template name="bookmark-master">
     <xsl:for-each
       select="/mysqldump/database/table_structure[
-        ./options/@Comment != 'VIEW'
+        ./options/@Comment = 'VIEW'
       ]"
       >
       <fo:bookmark
