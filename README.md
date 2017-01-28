@@ -14,7 +14,7 @@ git clone git@github.com-kobabasu:kobabasu/micro-schema.git schema
 1. mysqlworkbenchでモデルを作成
 1. File -> Export -> Forward Engineer SQL CREATE Script...で出力
 1. できたsqlファイルを`mysql -h 0.0.0.0 -uroot -ppass < dump.sql`
-1. xmlに出力 mysqldump -XR -h0.0.0.0 -uroot -ppass sample > dump.xml`
+1. xmlに出力 `mysqldump -XR -h0.0.0.0 -uroot -ppass sample > dump.xml`
 1. dump.xmlをmysqldump.xslにコピー
 
 ## run
