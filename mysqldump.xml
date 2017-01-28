@@ -1,90 +1,145 @@
 <?xml version="1.0"?>
 <mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<database name="waste">
-	<table_structure name="cards">
-		<field Field="id" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
-		<field Field="member_id" Type="int(11)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="location_id" Type="int(2)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="number" Type="varchar(45)" Null="NO" Key="" Extra="" Comment="" />
-		<key Table="cards" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="cards" Engine="InnoDB" Version="10" Row_format="Compact" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2017-01-26 06:36:58" Collation="latin1_swedish_ci" Create_options="" Comment="" />
-	</table_structure>
+<database name="sample">
 	<table_structure name="divisions">
-		<field Field="id" Type="int(2)" Null="NO" Key="PRI" Extra="" Comment="" />
-		<field Field="name" Type="varchar(20)" Null="NO" Key="" Extra="" Comment="" />
-		<key Table="divisions" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="divisions" Engine="InnoDB" Version="10" Row_format="Compact" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Create_time="2017-01-26 06:36:58" Collation="latin1_swedish_ci" Create_options="" Comment="" />
-	</table_structure>
-	<table_structure name="family">
-		<field Field="id" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
-		<field Field="member_id" Type="int(11)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="relationship" Type="varchar(20)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="last" Type="varchar(20)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="first" Type="varchar(20)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="birthday" Type="date" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="created" Type="timestamp" Null="YES" Key="" Extra="" Comment="" />
-		<field Field="modified" Type="timestamp" Null="YES" Key="" Extra="" Comment="" />
-		<key Table="family" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="family" Engine="InnoDB" Version="10" Row_format="Compact" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2017-01-26 06:36:58" Collation="latin1_swedish_ci" Create_options="" Comment="" />
-	</table_structure>
-	<table_structure name="groups">
 		<field Field="id" Type="int(2)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="sort" Type="int(2)" Null="NO" Key="" Default="0" Extra="" Comment="" />
 		<field Field="name" Type="varchar(20)" Null="NO" Key="" Extra="" Comment="" />
-		<key Table="groups" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="groups" Engine="InnoDB" Version="10" Row_format="Compact" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2017-01-26 06:36:58" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+		<key Table="divisions" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id" Collation="A" Cardinality="4" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="divisions" Engine="InnoDB" Version="10" Row_format="Compact" Rows="4" Avg_row_length="4096" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="5" Create_time="2017-01-27 23:18:08" Collation="utf8_unicode_ci" Create_options="" Comment="master:部署マスタ" />
 	</table_structure>
-	<table_structure name="keys">
-		<field Field="id" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
-		<field Field="member_id" Type="int(11)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="location_id" Type="int(2)" Null="NO" Key="" Extra="" Comment="" />
-		<key Table="keys" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="keys" Engine="InnoDB" Version="10" Row_format="Compact" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2017-01-26 06:36:58" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+	<table_data name="divisions">
+	<row>
+		<field name="id">1</field>
+		<field name="sort">0</field>
+		<field name="name">総務</field>
+	</row>
+	<row>
+		<field name="id">2</field>
+		<field name="sort">0</field>
+		<field name="name">事務</field>
+	</row>
+	<row>
+		<field name="id">3</field>
+		<field name="sort">0</field>
+		<field name="name">営業</field>
+	</row>
+	<row>
+		<field name="id">4</field>
+		<field name="sort">0</field>
+		<field name="name">経理</field>
+	</row>
+	</table_data>
+
+	<table_structure name="fullnames">
+		<field Field="fullname" Type="varchar(20)" Null="NO" Key="" Default="" Extra="" Comment="" />
+		<field Field="division_id" Type="int(2)" Null="YES" Key="" Default="0" Extra="" Comment="部署のID" />
+		<field Field="section_id" Type="int(2)" Null="YES" Key="" Default="0" Extra="" Comment="課のID" />
+		<options Name="fullnames" Comment="VIEW" />
 	</table_structure>
-	<table_structure name="locations">
-		<field Field="id" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
-		<field Field="name" Type="varchar(45)" Null="NO" Key="" Extra="" Comment="" />
-		<key Table="locations" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="locations" Engine="InnoDB" Version="10" Row_format="Compact" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2017-01-26 06:36:58" Collation="latin1_swedish_ci" Create_options="" Comment="" />
-	</table_structure>
+
 	<table_structure name="members">
-		<field Field="id" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
-		<field Field="last" Type="varchar(20)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="first" Type="varchar(20)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="id" Type="int(6)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="division_id" Type="int(2)" Null="YES" Key="MUL" Default="0" Extra="" Comment="部署のID" />
+		<field Field="section_id" Type="int(2)" Null="YES" Key="MUL" Default="0" Extra="" Comment="課のID" />
+		<field Field="last" Type="varchar(10)" Null="NO" Key="MUL" Extra="" Comment="" />
+		<field Field="first" Type="varchar(10)" Null="NO" Key="" Extra="" Comment="" />
 		<field Field="furi_last" Type="varchar(20)" Null="NO" Key="" Extra="" Comment="" />
 		<field Field="furi_first" Type="varchar(20)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="zip" Type="varchar(8)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="address" Type="varchar(255)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="mobile" Type="varchar(11)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="tel" Type="varchar(11)" Null="YES" Key="" Extra="" Comment="" />
-		<field Field="type_id" Type="int(1)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="birthday" Type="date" Null="YES" Key="" Extra="" Comment="" />
-		<field Field="gender_flag" Type="int(1)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="started" Type="date" Null="YES" Key="" Extra="" Comment="" />
-		<field Field="mobile_email" Type="varchar(255)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="gender_flag" Type="tinyint(1)" Null="NO" Key="" Default="1" Extra="" Comment="性別" />
 		<field Field="email" Type="varchar(255)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="career" Type="varchar(120)" Null="YES" Key="" Extra="" Comment="" />
-		<field Field="emergency" Type="varchar(11)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="holiday_group_id" Type="int(2)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="division_id" Type="int(2)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="section_id" Type="int(2)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="position_id" Type="int(2)" Null="NO" Key="" Extra="" Comment="" />
-		<field Field="created" Type="timestamp" Null="YES" Key="" Extra="" Comment="" />
-		<field Field="modified" Type="timestamp" Null="YES" Key="" Extra="" Comment="" />
-		<key Table="members" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="members" Engine="InnoDB" Version="10" Row_format="Compact" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2017-01-26 06:36:58" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+		<field Field="tel" Type="varchar(11)" Null="NO" Key="" Default="00000000000" Extra="" Comment="" />
+		<field Field="birthday" Type="date" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="desc" Type="text" Null="YES" Key="" Extra="" Comment="備考欄" />
+		<field Field="update_by" Type="int(6)" Null="YES" Key="" Default="0" Extra="" Comment="更新者" />
+		<field Field="created" Type="timestamp" Null="NO" Key="" Default="CURRENT_TIMESTAMP" Extra="on update CURRENT_TIMESTAMP" Comment="" />
+		<field Field="modified" Type="timestamp" Null="NO" Key="" Default="CURRENT_TIMESTAMP" Extra="on update CURRENT_TIMESTAMP" Comment="" />
+		<key Table="members" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id" Collation="A" Cardinality="2" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="members" Non_unique="1" Key_name="last_first_idx" Seq_in_index="1" Column_name="last" Collation="A" Cardinality="2" Null="" Index_type="BTREE" Comment="" Index_comment="フルネームで検索" />
+		<key Table="members" Non_unique="1" Key_name="last_first_idx" Seq_in_index="2" Column_name="first" Collation="A" Cardinality="2" Null="" Index_type="BTREE" Comment="" Index_comment="フルネームで検索" />
+		<key Table="members" Non_unique="1" Key_name="fk_members_division_id_idx" Seq_in_index="1" Column_name="division_id" Collation="A" Cardinality="2" Null="YES" Index_type="BTREE" Comment="" Index_comment="部門から社員検索" />
+		<key Table="members" Non_unique="1" Key_name="fk_members_section_id_idx" Seq_in_index="1" Column_name="section_id" Collation="A" Cardinality="2" Null="YES" Index_type="BTREE" Comment="" Index_comment="課から社員を検索" />
+		<options Name="members" Engine="InnoDB" Version="10" Row_format="Compact" Rows="2" Avg_row_length="8192" Data_length="16384" Max_data_length="0" Index_length="49152" Data_free="0" Auto_increment="3" Create_time="2017-01-27 23:18:08" Collation="utf8_unicode_ci" Create_options="" Comment="社員テーブル" />
 	</table_structure>
-	<table_structure name="positions">
-		<field Field="id" Type="int(2)" Null="NO" Key="PRI" Extra="" Comment="" />
-		<field Field="name" Type="varchar(20)" Null="NO" Key="" Extra="" Comment="" />
-		<key Table="positions" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="positions" Engine="InnoDB" Version="10" Row_format="Compact" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Create_time="2017-01-26 06:36:58" Collation="latin1_swedish_ci" Create_options="" Comment="" />
-	</table_structure>
+	<table_data name="members">
+	<row>
+		<field name="id">1</field>
+		<field name="division_id">1</field>
+		<field name="section_id">1</field>
+		<field name="last">山田</field>
+		<field name="first">太郎</field>
+		<field name="furi_last">ヤマダ</field>
+		<field name="furi_first">タロウ</field>
+		<field name="gender_flag">1</field>
+		<field name="email">taro@example.com</field>
+		<field name="tel">09011112222</field>
+		<field name="birthday">1980-01-01</field>
+		<field name="desc">山田太郎さんです</field>
+		<field name="update_by">1</field>
+		<field name="created">2017-01-27 23:18:08</field>
+		<field name="modified">2017-01-27 23:18:08</field>
+	</row>
+	<row>
+		<field name="id">2</field>
+		<field name="division_id">3</field>
+		<field name="section_id">2</field>
+		<field name="last">山田</field>
+		<field name="first">花子</field>
+		<field name="furi_last">ヤマダ</field>
+		<field name="furi_first">ハナコ</field>
+		<field name="gender_flag">2</field>
+		<field name="email">hanako@example.com</field>
+		<field name="tel">09033334444</field>
+		<field name="birthday">1980-01-02</field>
+		<field name="desc">山田花子さんです</field>
+		<field name="update_by">2</field>
+		<field name="created">2017-01-27 23:18:08</field>
+		<field name="modified">2017-01-27 23:18:08</field>
+	</row>
+	</table_data>
+
 	<table_structure name="sections">
 		<field Field="id" Type="int(2)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="sort" Type="varchar(45)" Null="NO" Key="" Default="0" Extra="" Comment="" />
+		<field Field="division_id" Type="int(2)" Null="YES" Key="MUL" Default="0" Extra="" Comment="" />
 		<field Field="name" Type="varchar(20)" Null="NO" Key="" Extra="" Comment="" />
-		<key Table="sections" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="sections" Engine="InnoDB" Version="10" Row_format="Compact" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="1" Create_time="2017-01-26 06:36:58" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+		<key Table="sections" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id" Collation="A" Cardinality="3" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="sections" Non_unique="1" Key_name="fk_sections_division_id_idx" Seq_in_index="1" Column_name="division_id" Collation="A" Cardinality="3" Null="YES" Index_type="BTREE" Comment="" Index_comment="部署から課検索" />
+		<options Name="sections" Engine="InnoDB" Version="10" Row_format="Compact" Rows="3" Avg_row_length="5461" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Auto_increment="4" Create_time="2017-01-27 23:18:08" Collation="utf8_unicode_ci" Create_options="" Comment="master:課マスタ" />
 	</table_structure>
+	<table_data name="sections">
+	<row>
+		<field name="id">1</field>
+		<field name="sort">0</field>
+		<field name="division_id">3</field>
+		<field name="name">一課</field>
+	</row>
+	<row>
+		<field name="id">2</field>
+		<field name="sort">0</field>
+		<field name="division_id">3</field>
+		<field name="name">二課</field>
+	</row>
+	<row>
+		<field name="id">3</field>
+		<field name="sort">0</field>
+		<field name="division_id">1</field>
+		<field name="name">資料課</field>
+	</row>
+	</table_data>
+
+	<routines>
+		<routine Procedure="honor" sql_mode="STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION" character_set_client="utf8" collation_connection="utf8_general_ci" Database_Collation="utf8_unicode_ci">
+<![CDATA[
+CREATE DEFINER=`root`@`%` PROCEDURE `honor`(IN id INT)
+BEGIN
+	SELECT concat('Mr.', `name`)
+    FROM `fullnames` WHERE `division_id` = id;
+END
+]]>
+		</routine>
+	</routines>
+
 </database>
 
 <!-- config.xml -->
