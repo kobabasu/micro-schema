@@ -12,7 +12,7 @@
 
   <!-- vars -->
 
-  <xsl:param name="title" select="@name" />
+  <xsl:param name="title" select="@Procedure" />
   <xsl:param
     name="project"
     select="'プロシージャ定義書'"
