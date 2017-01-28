@@ -43,7 +43,7 @@
           <xsl:call-template name="master-options" />
         </fo:block>
 
-        <!-- routines -->
+        <!-- body -->
 
         <fo:block-container
           border-left="solid 0.1mm #999999"

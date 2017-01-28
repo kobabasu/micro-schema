@@ -17,7 +17,7 @@
   <xsl:template name="master-body-page">
 
 
-    <!-- routines -->
+    <!-- body -->
 
       <fo:block
         margin="0mm 3mm 1mm 3mm"
