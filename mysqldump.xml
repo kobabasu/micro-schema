@@ -145,9 +145,9 @@ END
 <!-- config.xml -->
 <doc>
   <config>
-    <client>静和ケミカル株式会社</client>
+    <client>xxx株式会社</client>
     <date>2017/01/28</date>
-    <author>有限会社KTD</author>
+    <author>株式会社ooo</author>
     <version>0.1</version>
     <revision>01</revision>
     <keyword>document, manual, database</keyword>

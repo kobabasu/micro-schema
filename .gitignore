@@ -10,6 +10,7 @@ fop.xconf
 tables/build/*
 masters/build/*
 views/build/*
+procedures/build/*
 
 # exclude
 
