@@ -8,7 +8,7 @@
 
   <!-- fields -->
 
-  <xsl:template name="master-columns">
+  <xsl:template name="master-routines">
     <fo:table
       margin-bottom="3mm"
       >
@@ -83,7 +83,7 @@
         <xsl:for-each
           select="field"
           >
-          <xsl:call-template name="master-columns-row" />
+          <xsl:call-template name="master-routines-row" />
         </xsl:for-each>
       </fo:table-body>
 
@@ -93,7 +93,7 @@
 
   <!-- template -->
 
-  <xsl:template name="master-columns-row">
+  <xsl:template name="master-routines-row">
 
     <fo:table-row
       xsl:use-attribute-sets="gBorder"
