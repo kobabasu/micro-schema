@@ -60,8 +60,6 @@
         <xsl:value-of select="." />
       </fo:block>
 
-    <!--xsl:call-template name="master-routines" /-->
-
   </xsl:template>
 
 </xsl:stylesheet>

@@ -9,7 +9,6 @@
   <!-- include -->
 
   <xsl:include href="body.xsl" />
-  <xsl:include href="routines.xsl" />
   <xsl:include href="options.xsl" />
   <xsl:include href="background.xsl" />
   <xsl:include href="bookmark.xsl" />
